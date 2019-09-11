@@ -5,7 +5,7 @@ function Date(props){
 
 return (
         <div>
-       <time className='date' dateTime={date.date}>{date.date}</time>
+       <div className='date'>{date.date}</div>
        </div>
 )}
 

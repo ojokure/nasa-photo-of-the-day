@@ -12,6 +12,7 @@ function App() {
                                               image: '',
                                               title: '',
                                               description: '',
+                                              copyright: ''
                                             });
 
   useEffect(() => {
@@ -32,14 +33,14 @@ function App() {
     
     <div className="App">
       <p>
-        <h1> Astronomy Picture of the Day 🚀! </h1>
+        <h1> Astronomy Picture of the Day 🚀 </h1>
       </p>
-      <p> <nav><a href='https://apod.nasa.gov/apod/archivepix.html'>Discoverthe cosmos!</a> </nav> Each day a different image or photograph of our fascinating universe is featured,
+      <p> <a href='https://apod.nasa.gov/apod/archivepix.html'>Discoverthe cosmos!</a> Each day a different image or photograph of our fascinating universe is featured,
         along with a brief explanation written by a professional astronomer.
       </p>
       <Date date={dataState} />
-      {/* {/* {/* <Image /> */}
-      <ImageTitle title={dataState} />
+      <Image image={dataState} src={dataState.hdurl}/>
+      <ImageTitle title={dataState} copyright={dataState}/>
       <Description description={dataState} />
     </div>
   );
