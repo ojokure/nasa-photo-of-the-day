@@ -1,48 +1,53 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Date from "./DateComponent";
+import DateComponent from "./DateComponent";
 import Image from "./ImageComponent";
 import ImageTitle from "./ImageTitleComponent";
 import Description from "./DescriptionComponent";
 import axios from 'axios';
+import styled from 'styled-components';
+import Header from "./HeaderComponent";
+
+
+
+const AppStyle = styled.body`
+
+margin: 0 auto;
+
+`;
 
 function App() {
 
-  const [dataState, setDataState] = useState({date: '',
-                                              image: '',
-                                              title: '',
-                                              description: '',
-                                              copyright: ''
-                                            });
+  const today = new Date().toISOString().substr(0, 10);
+
+  const [dataState, setDataState] = useState({});
+  // slice of state for Date 
+  const [dateState, setDateState] = useState(today);
+  //   // event handler for Date 
+  const handleChange = (e) => {
+    setDateState(e.target.value);
+  }
 
   useEffect(() => {
 
-    axios.get('https://lambda-github-api-server.herokuapp.com/')
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateState}`)
       .then(res => {
 
-          setDataState(res.data)
+        setDataState(res.data)
       })
-      .catch(error => {
-             
-      }
 
-      )
-  }, []);
+  }, [dateState]);
+ 
 
-  return (
-    
-    <div className="App">
-      <p>
-        <h1> Astronomy Picture of the Day 🚀 </h1>
-      </p>
-      <p> <a href='https://apod.nasa.gov/apod/archivepix.html'>Discoverthe cosmos!</a> Each day a different image or photograph of our fascinating universe is featured,
-        along with a brief explanation written by a professional astronomer.
-      </p>
-      <Date date={dataState} />
-      <Image image={dataState} src={dataState.hdurl}/>
-      <ImageTitle title={dataState} copyright={dataState}/>
+  return (dataState && (
+
+    <body className="App">
+      <Header/>
+      <DateComponent today={dateState} handleChange={handleChange} />
+      <Image image={dataState}  />
+      <ImageTitle title={dataState} copyright={dataState} />
       <Description description={dataState} />
-    </div>
+    </body>)
   );
 }
 

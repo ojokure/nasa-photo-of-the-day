@@ -1,6 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 *{
-  background: #F4F4FF;
+  margin: 0 auto
 }
 
 .App {
