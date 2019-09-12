@@ -31,6 +31,7 @@ function Date(props) {
   return (
     <SytledDiv>
       Select Date{" "}
+      <form action="">
       <input
         onChange={handleChange}
         value={today}
@@ -38,6 +39,7 @@ function Date(props) {
         min="1990-09-09"
         max={today}
       />
+      </form>
     </SytledDiv>
   );
 }

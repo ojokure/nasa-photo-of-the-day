@@ -21,9 +21,11 @@ function App() {
   const today = new Date().toISOString().substr(0, 10);
 
   const [dataState, setDataState] = useState({});
+  
   // slice of state for Date 
   const [dateState, setDateState] = useState(today);
-  //   // event handler for Date 
+
+  //  event handler for Date 
   const handleChange = (e) => {
     setDateState(e.target.value);
   }
