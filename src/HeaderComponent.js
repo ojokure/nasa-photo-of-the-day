@@ -6,8 +6,13 @@ import styled from 'styled-components';
 const SytledDiv = styled.div`
 background: #6a1b9a;
 color: #f953c6;
-opacity:0.8;
-text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+font-family:"ABeeZee";
+text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de,0 0 100px #ff00de, 0 0 150px #ff00de;
+backdrop-filter: greyscale(0.8);
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+  );
 &:hover {
     color: #f4f4ff;
     font-weight: bold;
