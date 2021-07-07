@@ -1,13 +1,18 @@
 import React from "react";
+import styled from 'styled-components';
 
 function ImageTitle(props){
     const {title, copyright}= props
 
     const fontWeight = {
-        fontWeight :'bold'
+        color: '#f953cc',
+        fontWeight :'bold',
+        hover : `{
+            color: 'pink',
+          }`
     }
 
-return (
+ return (
 
       <div className='imagetitle'> <h style={fontWeight}>{title.title} 
       <p>Image Credit & Copyright: <a> {copyright.copyright}</a></p></h>
